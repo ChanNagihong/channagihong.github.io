@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            DrawPath | 
+        
+        Kelton Chan
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Kelton Chan">
+    <meta name="description" itemprop="description" content="I’ve got a long way to go, that’s why I mark down so many notes.">
+    <meta name="keywords" content="null,Canvas,DrawPath,mapPoints,Matrix,MPAndroidChart,postScale,postTranslate">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="http://orqt8ndmu.bkt.clouddn.com/owl.png">
+    <link rel="icon" sizes="192x192" href="http://orqt8ndmu.bkt.clouddn.com/owl.png">
+    <link rel="apple-touch-icon" href="http://orqt8ndmu.bkt.clouddn.com/owl.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Kelton Chan">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://channagihong.github.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="DrawPath | Kelton Chan">
+    <meta property="og:image" content="http://orqt8ndmu.bkt.clouddn.com/owl.png" />
+    <meta property="og:description" content="I’ve got a long way to go, that’s why I mark down so many notes.">
+    <meta property="og:article:tag" content="Canvas"> <meta property="og:article:tag" content="DrawPath"> <meta property="og:article:tag" content="mapPoints"> <meta property="og:article:tag" content="Matrix"> <meta property="og:article:tag" content="MPAndroidChart"> <meta property="og:article:tag" content="postScale"> <meta property="og:article:tag" content="postTranslate"> 
+
+    
+        <meta property="article:published_time" content="8月 06, 2017" />
+        <meta property="article:modified_time" content="8月 06, 2017" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="DrawPath | Kelton Chan">
+    <meta name="twitter:description" content="I’ve got a long way to go, that’s why I mark down so many notes.">
+    <meta name="twitter:image" content="http://orqt8ndmu.bkt.clouddn.com/owl.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://channagihong.github.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://channagihong.github.com/2017/08/06/DrawPath/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Kelton Chan",
+        "logo": "http://orqt8ndmu.bkt.clouddn.com/owl.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Kelton Chan",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://orqt8ndmu.bkt.clouddn.com/owl.png"
+        },
+        "description": "Long way to go."
+    },
+    "headline": "DrawPath",
+    "url": "https://channagihong.github.com/2017/08/06/DrawPath/index.html",
+    "datePublished": "8月 06, 2017",
+    "dateModified": "8月 06, 2017",
+    "description": "I’ve got a long way to go, that’s why I mark down so many notes.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://channagihong.github.com"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    .footer-sns-facebook {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
+    }
+    
+    
+    .footer-sns-twitter {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
+    }
+    
+    
+    .footer-sns-gplus {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1、图表边框"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.1、图表边框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Canvas-drawLine-fromX-fromY-toX-toY，paint"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Canvas.drawLine(fromX, fromY, toX, toY，paint);</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2、图表横向、纵向刻度线"><span class="post-toc-number">2.</span> <span class="post-toc-text">1.2、图表横向、纵向刻度线</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-1、计算值每增加一个单位，步长为多少"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">1.2.1、计算值每增加一个单位，步长为多少</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-2、然后计算步长-即距离多远画出一条刻度线-，最后计算出总共有多少条横向刻度线，并且计算出每条刻度线的y轴坐标"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">1.2.2、然后计算步长(即距离多远画出一条刻度线)，最后计算出总共有多少条横向刻度线，并且计算出每条刻度线的y轴坐标</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-3、根据每条横向刻度线的y轴坐标，画出横向刻度线"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">1.2.3、根据每条横向刻度线的y轴坐标，画出横向刻度线</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3、画刻度值"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.3、画刻度值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4、drawData"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">1.4、drawData</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-1、画数据图-以柱状图为例"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">1.4.1、画数据图(以柱状图为例)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-2、画数据值-以柱状图为例"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">1.4.2、画数据值(以柱状图为例)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1、交互事件接收"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.1、交互事件接收</span></a></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://orqt8ndmu.bkt.clouddn.com/material-27.png)">
+    
+            <p class="article-headline-p">
+                DrawPath
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="http://orqt8ndmu.bkt.clouddn.com/avatar2.jpeg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Kelton Chan</strong>
+        <span>8月 06, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Canvas/">Canvas</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/DrawPath/">DrawPath</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/MPAndroidChart/">MPAndroidChart</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Matrix/">Matrix</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/mapPoints/">mapPoints</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/postScale/">postScale</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/postTranslate/">postTranslate</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=DrawPath&url=https://channagihong.github.com/2017/08/06/DrawPath/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=DrawPath&url=https://channagihong.github.com/2017/08/06/DrawPath/index.html&via=Kelton Chan" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://channagihong.github.com/2017/08/06/DrawPath/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://channagihong.github.com/2017/08/06/DrawPath/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>此项目是我遇到过<a href="https://github.com/PhilJay/MPAndroidChart" target="_blank" rel="external">MPAndroidChart</a>后，对Android上图表生成感兴趣，所以决定自己简单实现的产出物。<br>此笔记其实想提笔很久了，一年多后的今天，终于开始。事情还是要一件一件做。<br>项目源码地址: <a href="https://github.com/ChanNagihong/DrawPath" target="_blank" rel="external">DrawPath</a><br>本项目适合想快速了解图表生成图表用户交互实现的人，至于封装、或更有技巧的实现、优化等一概没有。<br>本项目主要集中两点：<br>1、如何画出图表<br>2、图表如何交互<br>首先第一点，如何画出图表，较为重视Canvas基础API的使用。<br>图表结构成一下几部分：<br>1.1、图表边框<br>1.2、图表横向、纵向的刻度线<br>1.3、x、y轴刻度值<br>1.4、画单个数据<br>第二点，图表如何交互，较为重视Android系统onTouch的基本功，以及Matrix的使用。<br>2.1、交互事件接收、处理<br>2.2、坐标值转换(比如双指放大，则所有坐标根据两手指的中点，计算放大后的坐标值)  </p>
+<p>实际上，本文的编排为<br>1.1 -&gt; 1.2 -&gt; 2.2 -&gt; 1.3 -&gt; 1.4 -&gt; 2.1    </p>
+<p>本文大部分以最简单的BarChart为例，先上图<br>BarChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/BarChart.png" alt="BarChart">  </p>
+<h2 id="1-1、图表边框"><a href="#1-1、图表边框" class="headerlink" title="1.1、图表边框"></a>1.1、图表边框</h2><p>边框的实现，主要看你想生成出来的图表的边框长什么样，<br>比如左边框(l)，上边框(t)，右边框(r)，下边框(b)，<br>无论要lt、lr、lbt、lbr、ltrb等都非常简单，一个api，  </p>
+<h3 id="Canvas-drawLine-fromX-fromY-toX-toY，paint"><a href="#Canvas-drawLine-fromX-fromY-toX-toY，paint" class="headerlink" title="Canvas.drawLine(fromX, fromY, toX, toY，paint);"></a>Canvas.drawLine(fromX, fromY, toX, toY，paint);</h3><p>边框就是边框，无需设计用户交互，基本上就是在图表的View的边缘画出来，无论用户如何交互，始终不需要变化，直接显示即可。  </p>
+<h2 id="1-2、图表横向、纵向刻度线"><a href="#1-2、图表横向、纵向刻度线" class="headerlink" title="1.2、图表横向、纵向刻度线"></a>1.2、图表横向、纵向刻度线</h2><p>举例说明横向刻度线(y轴上的刻度线)，假设上一条横向刻度线与下一条横向刻度线的距离叫步长(每条横向刻度线之间的间隔相等)，首先需要根据数据集计算出屏幕上每1单位的高度对应的值有多少。  </p>
+<h4 id="1-2-1、计算值每增加一个单位，步长为多少"><a href="#1-2-1、计算值每增加一个单位，步长为多少" class="headerlink" title="1.2.1、计算值每增加一个单位，步长为多少"></a>1.2.1、计算值每增加一个单位，步长为多少</h4><p>根据数据集的最大值和最小值，除以该View的高度。  </p>
+<pre><code class="Java"><span class="comment">/**
+  * 这里假设图表的原点(x,0)对应y轴的坐标为0
+  * 而且这里计算的时候每有涉及到放大系数，当后面涉及放大系数的时候，
+  * 问题就会变成为放大后，每增加1单位的值，步长为多少。
+ */</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">calcYAxisIncrementLength</span><span class="params">(<span class="keyword">int</span> height)</span> </span>{
+        <span class="keyword">return</span> height / calcMaxVal();
+    }
+</code></pre>
+<h4 id="1-2-2、然后计算步长-即距离多远画出一条刻度线-，最后计算出总共有多少条横向刻度线，并且计算出每条刻度线的y轴坐标"><a href="#1-2-2、然后计算步长-即距离多远画出一条刻度线-，最后计算出总共有多少条横向刻度线，并且计算出每条刻度线的y轴坐标" class="headerlink" title="1.2.2、然后计算步长(即距离多远画出一条刻度线)，最后计算出总共有多少条横向刻度线，并且计算出每条刻度线的y轴坐标"></a>1.2.2、然后计算步长(即距离多远画出一条刻度线)，最后计算出总共有多少条横向刻度线，并且计算出每条刻度线的y轴坐标</h4><pre><code class="Java"><span class="comment">/**
+  * 计算步长值对应的步长距离，比如我设置为值每增加50，画一条刻度线
+  * calcBaseYAxisMarkIncrementVal()是返回步长值
+  * 步长值 * 单位步长 = 步长距离
+  */</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">float</span> <span class="title">calcBaseYAxisMarkIncrementLength</span><span class="params">(<span class="keyword">int</span> height)</span> </span>{
+        <span class="keyword">return</span> calcBaseYAxisMarkIncrementVal() * calcYAxisIncrementLength(height);
+    }
+
+<span class="comment">/**
+  * 计算y轴的放大系数，入参为当前的放大系数。
+  * 为了简单处理，目前入参的放大系数是直接根据onTouchEvent计算出来，
+  * 但y轴和x轴的放大系数，均限制为2的倍数，
+  * 即当双指操作，放大系数从2到2.7，计算后，依然后2。
+  * 并且scale是不会少于1的，1是图表的基础大小，不能再缩小了。
+ */</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">convertYAxisScale</span><span class="params">(<span class="keyword">float</span> scale)</span> </span>{
+        <span class="keyword">int</span> intScale = (<span class="keyword">int</span>) scale;
+        <span class="keyword">if</span> (intScale == <span class="number">1</span>) {
+            <span class="keyword">return</span> intScale;
+        }
+        <span class="keyword">int</span> rest = intScale % <span class="number">2</span>;
+        <span class="keyword">return</span> intScale - rest;
+    }
+
+<span class="comment">/**
+  * y轴、x轴的放大系数规则为：图表放大，放大系数&lt;1。图表缩小，放大系数&gt;1
+  * 返回放大系数作用后的的步长
+  * 这里有一个思路需要注意：
+  * 实现计算放大系数作用后的步长，有三种方法：
+  * 一是将调用方设置的基础刻度值为每20刻度值一条刻度线，通过步长作用后变为每10刻度值一条刻度线
+  * 从而计算出每条刻度线的步长
+  * 二是将调用方设置的基础刻度值为每20刻度值一条刻度线维持不变，将每1刻度值对应的步长通过
+  * 放大系数作用后，乘20刻度值，计算出步长
+  * 三是将调用方设置的基础刻度值为每20刻度值一条刻度线维持不变，每1刻度值对应的步长也维持不变
+  * 将每刻度值对应步长，乘20刻度值，计算出基础步长，再将基础步长在放大系数作用后返回
+  * 放大系数作用后的步长  
+  * 这里实现的是第三种
+ */</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">float</span> <span class="title">calcYAxisMarkIncrementLength</span><span class="params">(<span class="keyword">int</span> height, <span class="keyword">float</span> scale)</span> </span>{
+        <span class="keyword">return</span> calcBaseYAxisMarkIncrementLength(height) / convertYAxisScale(scale);
+    }
+
+<span class="comment">/**
+  * 计算以 放大系数作用后的步长 为基础，整个图表视图View的高度，要显示几条横向刻度线
+ */</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">calcYAxisGridLinesCount</span><span class="params">(<span class="keyword">int</span> height, <span class="keyword">float</span> scale)</span> </span>{
+        <span class="keyword">return</span> (<span class="keyword">int</span>) (height / calcYAxisMarkIncrementLength(height, scale));
+    }
+
+<span class="comment">/**
+  * 计算从y轴0刻度开始依次向上，每条横向刻度线的y轴坐标
+  * 这里有一个非常重要的概念，必须非常清晰，
+  * 就是当放大系数从1变成0.5的时候，原本在View中的横向刻度线的条数会从原本的20条变为40条
+  * 想象一下应用场景，当你使用的时候，双指放大图表(记得一起想象图表超越视图边界以外的部分)
+  * 原本的刻度值是每20一条刻度线，变为每10个刻度值一条刻度线
+  * 虽然眼中的图表视图View的大小不变，超出View边缘的视图没有画出来，
+  * 但我们在实现的过程中，必须非常清晰，一张图表，永远是一张图表，不只是展现在用户眼中部分的图表
+  *
+  *
+  * 此函数为被图表视图直接调用的函数(public)
+  * 这里的入参{height}永远是图表视图的大小，即固定不变
+  * 请注意，这里为什么不变，一定要先想明白。
+  * 其实图表实际上总大小没有变化，只是图表上每隔多少步长画一条刻度线发生了变化
+  * 这里先说明一下后面的流程，在实际计算上，图表总大小没有发生任何变化，
+  * 只是在画图表的时候，统一将要画的内容的每一个坐标，都通过Matrix换算后才画出来的
+  * 所以在我们开发者心中，无论使用者如何放大、缩小图表，实际的图表，大小并没有变化
+  * 只是最后画出来的内容的密度发生了变化
+  * 我们的每一处计算，都不考虑最终画出来的时候，所有坐标如何变化，只需要按初始化的图表进行计算即可
+ */</span>
+<span class="keyword">public</span> <span class="keyword">float</span>[] calcYAxisGridLinesY(<span class="keyword">int</span> height, <span class="keyword">float</span> scale) {
+        <span class="keyword">float</span>[] ys = <span class="keyword">new</span> <span class="keyword">float</span>[calcYAxisGridLinesCount(height, scale)];
+        <span class="keyword">float</span> incrementLength = calcYAxisMarkIncrementLength(height, scale);
+        <span class="keyword">float</span> current = <span class="number">0f</span>;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ys.length; i++) {
+            current = (i + <span class="number">1</span>) * incrementLength;
+            ys[i] = current;
+        }
+        <span class="keyword">return</span> ys;
+    }
+</code></pre>
+<h4 id="1-2-3、根据每条横向刻度线的y轴坐标，画出横向刻度线"><a href="#1-2-3、根据每条横向刻度线的y轴坐标，画出横向刻度线" class="headerlink" title="1.2.3、根据每条横向刻度线的y轴坐标，画出横向刻度线"></a>1.2.3、根据每条横向刻度线的y轴坐标，画出横向刻度线</h4><pre><code class="Java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawYAxisGridLines</span><span class="params">(Canvas canvas)</span> </span>{
+        <span class="keyword">float</span>[] ys = mDataSet.calcYAxisGridLinesY(getFrameHeight(), getYAxisScale());
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ys.length; i++) {
+            getMatrixPoint()[<span class="number">1</span>] = ys[i];
+            getGlobalMatrix().mapPoints(getMatrixPoint());
+            <span class="keyword">if</span> (getMatrixPoint()[<span class="number">1</span>] &gt; getFrameHeight() || getMatrixPoint()[<span class="number">1</span>] &lt; <span class="number">0</span>) {
+                <span class="keyword">continue</span>;
+            }
+            canvas.drawLine(mPaddingLeft, getMatrixPoint()[<span class="number">1</span>] + mPaddingTop, canvas.getWidth() - mPaddingRight, getMatrixPoint()[<span class="number">1</span>] + mPaddingTop, mGridPaint);
+        }
+        drawYAxisMark(canvas, ys);
+    }
+</code></pre>
+<p>到了这里，你会发现Matrix的身影。<br>Matrix是一个3*3的二维数组，全为int类型。<br>直观来看，分别为：<br><img src="http://orqt8ndmu.bkt.clouddn.com/image/androidnotes/drawpath/Quiver%20Quiver,%20Today%20at%209.27.30%20PM.png" alt=""></p>
+<p>Matrix实际上帮助我们进行Translate、Scale、Rotate等操作。<br>大概网上了解一下图像处理的一些概念，便知图像处理的所以计算大都基于矩阵运算。<br>Translate:<br><img src="http://orqt8ndmu.bkt.clouddn.com/image/androidnotes/drawpath/912181-855867a0f68e49d9.png" alt="Translate"><br>Scale:<br><img src="http://orqt8ndmu.bkt.clouddn.com/image/androidnotes/drawpath/912181-c8c140f387c3c957.png" alt="Scale"><br>Rotate:<br><img src="http://orqt8ndmu.bkt.clouddn.com/image/androidnotes/drawpath/912181-7117dbf66687d74d.png" alt="Rotate"><br>其中只有Translate的计算方法是加法，其他都是乘法。<br>对计算进行处理最麻烦的地方在与四则运算的先后处理顺序。<br>如果能将Translate的计算方法转换成加法，则能大大降低多层次嵌套的逻辑处理成本。<br>数学家发明了齐次坐标。<br>齐次坐标是这样的，将一个2D平面上的点，用[x,y,z]表示。<br>比如（2，4） -&gt; [2，4，1]<br>同时，[4，8，2]表示的点与[2，4，1]表示的点是一样的。<br>因为(X/Z, Y/Z)计算出来的结果是一样的。  引入齐次坐标后，矩阵运算如下：<br>Translate:<br><img src="http://orqt8ndmu.bkt.clouddn.com/image/androidnotes/drawpath/qici-3.png" alt="Translate"><br>Scale:<br><img src="http://orqt8ndmu.bkt.clouddn.com/image/androidnotes/drawpath/qici-2.png" alt="Scale"><br>Rotate:<br><img src="http://orqt8ndmu.bkt.clouddn.com/image/androidnotes/drawpath/qici-1.png" alt="Rotate"><br>从此，此三种图像处理都可以使用乘法计算了。<br>回到代码中，在drawYAxisGridLines函数里  </p>
+<pre><code class="Java">getMatrixPoint()[<span class="number">1</span>] = ys[i]；
+</code></pre>
+<p>其中ys[i]是当前要画出来的横向刻度线的y轴坐标<br>其中getMatrixPoint方法返回一个当前View级别的全局引用，一个float[2]。<br>主要存储当前要计算的x、y坐标。<br>这里要计算该条刻度线经过放大、位移处理后，在View中的y轴坐标。<br>这里面又有一个概念，当前图表View中，左上角的起始坐标为(0,0)，但我们在xy轴中，(0,0)坐标位于图表View的左下角。所以这里的ys[i]全是依据图表View中左上角计算出来的值，因为基于我们开发者心中1:1的图表，每条线的坐标都是依据步长计算出来的。而步长计算的起点是图表View的顶部和底部，最后绘画出来的结果是一样的。所以这里也就没有做坐标转换了。  </p>
+<pre><code class="Java">getGlobalMatrix().mapPoints(getMatrixPoint());
+</code></pre>
+<p>这里getGlobalMatrix()返回的是图表View级别的全局引用matrix。<br>再本项目中，并没有实现图表的旋转，所以只有Translate和Scale两种变化。<br>所以的变化都保存在getGlobalMatrix()的全局引用中。<br>基本就两个api，  </p>
+<pre><code class="Java"><span class="comment">/**
+  * 其中scaleX、scaleY分别是本次操作x、y轴放大了多少，一般是一样的，不然就不是等比例放大了。  
+  * 然后就是centerX,centerY，这个需要计算出用户两手指触屏的两点的中* 间点计算出来
+ */</span>
+matrix.postScale(<span class="keyword">float</span> scaleX, <span class="keyword">float</span> scaleY, <span class="keyword">float</span> centerX, <span class="keyword">float</span> centerY);
+<span class="comment">/**
+  * x,y分别为在x轴和在y轴上的位移为多少
+ */</span>
+matrix.postTranslate(<span class="keyword">float</span> x, <span class="keyword">float</span> y);
+</code></pre>
+<p>无论是任何操作(用户的每一次ActionUp[结束]与开始的ActionDown[开始]导致的结果视为一个操作)，都堆叠在上一次操作的最终结果之上。<br>比如postScale后，用户在放大，则直接调用postScale，比如之后用户在移动了图表，则直接postTranslate，因为应用场景就是这样，这里请想象一下应用场景。<br>这里比较麻烦的是双指放大图标时，根据触屏两点的中间点，计算出1:1图表中对应的真实坐标  </p>
+<pre><code class="Java"><span class="comment">/**
+  * 其中首先计算出centerX,centerY是当前两指中间的点坐标
+  * xtrans计算规则：ActionUp时x坐标-ActionDown时x坐标  
+  * 即 结束 - 起始  
+  * ytrans计算规则：ActionUp时y坐标-ActionDown时y坐标
+  * 即结束 - 起始
+  * 这里的所有坐标计算均基于图表View左上角的(0，0)计算的
+ */</span>
+<span class="keyword">private</span> <span class="keyword">float</span>[] calcRealPoint(MotionEvent event) {
+        <span class="keyword">float</span> centerX, centerY;
+        centerX = (event.getX(<span class="number">0</span>) + event.getX(<span class="number">1</span>)) / <span class="number">2</span> - mPaddingLeft;
+        centerY = (event.getY(<span class="number">0</span>) + event.getY(<span class="number">1</span>)) / <span class="number">2</span> - mPaddingTop;
+        <span class="keyword">float</span> visibleX = -getXAxisTrans() + centerX;
+        <span class="keyword">float</span> visibleY = -getYAxisTrans() + centerY;
+        <span class="keyword">float</span> realX = visibleX / getXAxisScale();
+        <span class="keyword">float</span> realY = visibleY / getYAxisScale();
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">float</span>[]{realX, realY};
+    }
+</code></pre>
+<p>好了，本项目中要使用到matrix的地方都介绍完了，现在我们回到drawYAxisGridLines中  </p>
+<pre><code class="Java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawYAxisGridLines</span><span class="params">(Canvas canvas)</span> </span>{
+        <span class="keyword">float</span>[] ys = mDataSet.calcYAxisGridLinesY(getFrameHeight(), getYAxisScale());
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ys.length; i++) {
+            getMatrixPoint()[<span class="number">1</span>] = ys[i];
+            getGlobalMatrix().mapPoints(getMatrixPoint());
+            <span class="keyword">if</span> (getMatrixPoint()[<span class="number">1</span>] &gt; getFrameHeight() || getMatrixPoint()[<span class="number">1</span>] &lt; <span class="number">0</span>) {
+                <span class="keyword">continue</span>;
+            }
+            canvas.drawLine(mPaddingLeft, getMatrixPoint()[<span class="number">1</span>] + mPaddingTop, canvas.getWidth() - mPaddingRight, getMatrixPoint()[<span class="number">1</span>] + mPaddingTop, mGridPaint);
+        }
+        drawYAxisMark(canvas, ys);
+    }
+</code></pre>
+<p>matrix.mapPoints后，计算结果直接回填到getMatrixPoint()的引用中(即float[2])。<br>这样，matrix直接计算出结果，不需要我们自己计算了。<br>然后拿着计算出来的y值，与图表View的顶部与底部比较一下，如果缩放+位移后的结果是该条刻度线已经不再View中了，则不画了，因为本来使用者就看不到，所以就不画了。<br>最后drawYAxisMark()是在刻度线旁边协商刻度值。  </p>
+<h3 id="1-3、画刻度值"><a href="#1-3、画刻度值" class="headerlink" title="1.3、画刻度值"></a>1.3、画刻度值</h3><p>举例说明y轴的刻度值  </p>
+<pre><code class="Java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawYAxisMark</span><span class="params">(Canvas canvas, <span class="keyword">float</span>[] ys)</span> </span>{
+        mMarkPaint.setColor(Color.BLACK);
+        <span class="keyword">float</span> characterHeight = calcCharacterHeight(mMarkPaint);
+        <span class="keyword">float</span> characterWidth = calcCharacterWidth(mMarkPaint);
+        <span class="keyword">float</span> yAxisIncrementVal = mDataSet.calcYAxisMarkIncrementVal(getYAxisScale());
+        <span class="keyword">float</span> maxVal = (<span class="keyword">int</span>) mDataSet.calcMaxVal();
+        <span class="keyword">boolean</span> showDecimal = <span class="keyword">false</span>;
+        <span class="keyword">if</span> (mDataSet.calcYAxisMarkIncrementVal(getYAxisScale()) &lt; <span class="number">1f</span>) {
+            showDecimal = <span class="keyword">true</span>;
+        }
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = -<span class="number">1</span>; i &lt; ys.length; i++) {
+            <span class="keyword">if</span> (i == -<span class="number">1</span>) {
+                getMatrixPoint()[<span class="number">1</span>] = <span class="number">0f</span>;
+                getGlobalMatrix().mapPoints(getMatrixPoint());
+                <span class="keyword">if</span> (getMatrixPoint()[<span class="number">1</span>] &lt; <span class="number">0</span>) {
+                    <span class="keyword">continue</span>;
+                }
+                String maxValS = FloatFormatter.format(maxVal);
+                <span class="keyword">float</span> characterXOffset = maxValS.length() * characterWidth;
+                canvas.drawText(maxValS, mPaddingLeft - characterXOffset, mPaddingTop + getMatrixPoint()[<span class="number">1</span>] + characterHeight / <span class="number">2</span>, mMarkPaint);
+                canvas.drawText(maxValS, mCanvasWidth - mPaddingRight + <span class="number">10</span>, mPaddingTop + getMatrixPoint()[<span class="number">1</span>] + characterHeight / <span class="number">2</span>, mMarkPaint);
+            } <span class="keyword">else</span> {
+                getMatrixPoint()[<span class="number">1</span>] = ys[i];
+                getGlobalMatrix().mapPoints(getMatrixPoint());
+                <span class="keyword">if</span> (getMatrixPoint()[<span class="number">1</span>] &lt; <span class="number">0</span>) {
+                    <span class="keyword">continue</span>;
+                }
+                <span class="keyword">if</span> (getMatrixPoint()[<span class="number">1</span>] &gt; getFrameHeight()) {
+                    <span class="keyword">break</span>;
+                }
+                <span class="keyword">float</span> mark = maxVal - yAxisIncrementVal * (i + <span class="number">1</span>);
+                <span class="keyword">if</span> (!showDecimal) {
+                    mark = (<span class="keyword">float</span>) Math.floor(mark);
+                }
+                String markS = FloatFormatter.format(mark);
+                <span class="keyword">float</span> characterXOffset = markS.length() * characterWidth;
+                canvas.drawText(markS, mPaddingLeft - characterXOffset - <span class="number">10</span>, mPaddingTop + getMatrixPoint()[<span class="number">1</span>] + characterHeight / <span class="number">2</span>, mMarkPaint);
+                canvas.drawText(markS, mCanvasWidth - mPaddingRight + <span class="number">10</span>, mPaddingTop + getMatrixPoint()[<span class="number">1</span>] + characterHeight / <span class="number">2</span>, mMarkPaint);
+            }
+        }
+    }
+</code></pre>
+<p>其中第五行的calcYAxisMarkIncrementVal()方法，返回的是放大系数作用后的步长值，比如原本步长值为20(y轴的值每20就画一条刻度线)，放大成2倍后，则变成步长值为10。<br>第六行的maxVal是整个数据集的最大值，可以在这里如实返回，但为了图表美观，这里是返回数据的最大值 <em> 1.2，即如果整份数据最大是120，则整个图表View中y轴的最大值为144，当然也可以处理的美观一点，改为零头，即140。<br>所以140在图表视图的左上角(0，0)处。<br>i == -1，是故意的，因为这里需要任何时候都画出y轴的最大值是多少，所以这里如果”零头处理”了，就是140，如果不是，则是144。并且i == 1的时候，是直接画顶部往下的第一条线了，不会有最大值这条线。<br>同样使用matrix.mapPoints()，当计算结果是超出了视图View的边缘，则不画。<br>计算当前刻度线的值是，y轴最大值 - 当前第几条 </em> 放大系数作用后的步长值。<br>如此，画完。  </p>
+<h3 id="1-4、drawData"><a href="#1-4、drawData" class="headerlink" title="1.4、drawData"></a>1.4、drawData</h3><pre><code class="Java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawData</span><span class="params">(Canvas canvas)</span> </span>{
+        mBitmapPaint.setStyle(Paint.Style.FILL);
+        <span class="keyword">if</span> (mDrawBitmap == <span class="keyword">null</span>) {
+            <span class="keyword">if</span> (getFrameWidth() &gt; <span class="number">0</span> &amp;&amp; getFrameHeight() &gt; <span class="number">0</span>) {
+                mDrawBitmap = <span class="keyword">new</span> WeakReference&lt;Bitmap&gt;(Bitmap.createBitmap(getFrameWidth(), getFrameHeight(), Bitmap.Config.ARGB_8888));
+                mBitmapCanvas = <span class="keyword">new</span> Canvas(mDrawBitmap.get());
+            } <span class="keyword">else</span>
+                <span class="keyword">return</span>;
+        }
+        mDrawBitmap.get().eraseColor(Color.TRANSPARENT);
+        mDataSet.calcDataPoint(getFrameWidth(), getFrameHeight());
+        drawRectangles(mBitmapCanvas);
+        canvas.drawBitmap(mDrawBitmap.get(), mPaddingLeft, mPaddingTop, mBitmapPaint);
+        mValuePaint.setStyle(Paint.Style.STROKE);
+        mValuePaint.setColor(Color.BLACK);
+        mValuePaint.setTextSize(<span class="number">30f</span>);
+        <span class="keyword">if</span> (isNeedToDrawDataValues()) {
+            drawDataValues(canvas);
+        }
+    }
+</code></pre>
+<p>四个操作<br>1、视图级别的全局bitmap引用是否存在，不存在就初始化<br>2、清空画布<br>3、画数据图<br>4、画数据值  </p>
+<h4 id="1-4-1、画数据图-以柱状图为例"><a href="#1-4-1、画数据图-以柱状图为例" class="headerlink" title="1.4.1、画数据图(以柱状图为例)"></a>1.4.1、画数据图(以柱状图为例)</h4><pre><code class="Java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawRectangles</span><span class="params">(Canvas bitmapCanvas)</span> </span>{
+        mRectanglePaint.setStyle(Paint.Style.FILL);
+        <span class="keyword">float</span> length = mDataSet.calcXAxisIncrementLength(getFrameWidth());
+        <span class="keyword">float</span> padding = mDataSet.calcRectanglePaddingLength(getFrameWidth());
+        <span class="keyword">float</span>[] points = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">4</span>];
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mDataSet.getCount(); i++) {
+            Data data = mDataSet.getDatas().get(i);
+            points[<span class="number">0</span>] = data.getX() + padding;
+            points[<span class="number">1</span>] = data.getY();
+            points[<span class="number">2</span>] = data.getX() + length - padding;
+            getGlobalMatrix().mapPoints(points);
+            <span class="keyword">if</span>(points[<span class="number">2</span>] &lt; <span class="number">0f</span>
+                    || points[<span class="number">1</span>] &gt; getFrameHeight()) {
+                <span class="keyword">continue</span>;
+            }
+            <span class="keyword">if</span>(points[<span class="number">0</span>] &gt; getFrameWidth()) {
+                <span class="keyword">break</span>;
+            }
+            <span class="keyword">if</span> (i == mSelectedDataIndex) {
+                mRectanglePaint.setColor(Color.BLACK);
+            } <span class="keyword">else</span> {
+                mRectanglePaint.setColor(data.getColor());
+            }
+            bitmapCanvas.drawRect(points[<span class="number">0</span>], points[<span class="number">1</span>], points[<span class="number">2</span>], getFrameHeight(), mRectanglePaint);
+        }
+    }
+</code></pre>
+<p>首先计算出每条柱状图宽度最大可以画多少，比如第一个rectangle，就是x轴上的0刻度到第一条x轴上的刻度线的距离，至于padding，则是可以为0，可以为length <em> 0.1，可以为length </em> 0.2，主要看调用者想留在每个rectangle的两边留多少空隙<br>这里需要使用到四个坐标(float[4])，即rectangle的（x1，y1）和(x2，y2)。<br>至于y2为什么不需要？因为在柱状图中，每一条柱子都从y1开始一直画到x轴上。<br>同理matrix.mapPoints()后，判断一下该条数据是否超出了视图View的边缘，超出了，则不画。  </p>
+<h4 id="1-4-2、画数据值-以柱状图为例"><a href="#1-4-2、画数据值-以柱状图为例" class="headerlink" title="1.4.2、画数据值(以柱状图为例)"></a>1.4.2、画数据值(以柱状图为例)</h4><pre><code class="Java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawDataValues</span><span class="params">(Canvas canvas)</span> </span>{
+        <span class="keyword">int</span> characterWidth = calcCharacterWidth(mValuePaint);
+        <span class="keyword">int</span> characterHeight = calcCharacterHeight(mValuePaint);
+        <span class="keyword">float</span> length = mDataSet.calcXAxisIncrementLength(getFrameWidth());
+        <span class="keyword">float</span> padding = mDataSet.calcRectanglePaddingLength(getFrameWidth());
+        length *= getXAxisScale();
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mDataSet.getCount(); i++) {
+            Data data = mDataSet.getDatas().get(i);
+            getMatrixPoint()[<span class="number">0</span>] = data.getX();
+            getMatrixPoint()[<span class="number">1</span>] = data.getY();
+            getGlobalMatrix().mapPoints(getMatrixPoint());
+            <span class="keyword">if</span> (getMatrixPoint()[<span class="number">0</span>] + length / <span class="number">2</span> &lt; <span class="number">0</span>
+                    || getMatrixPoint()[<span class="number">1</span>] - characterHeight - <span class="number">15</span> &lt; <span class="number">0</span>
+                    || getMatrixPoint()[<span class="number">1</span>] &gt; getFrameHeight()) {
+                <span class="keyword">continue</span>;
+            }
+            <span class="keyword">if</span> (getMatrixPoint()[<span class="number">0</span>] &gt; getFrameWidth()) {
+                <span class="keyword">break</span>;
+            }
+            <span class="keyword">int</span> characterXOffset = characterWidth * data.getFormattedValue().length() / <span class="number">2</span>;
+            <span class="keyword">float</span> startX = getMatrixPoint()[<span class="number">0</span>] - characterXOffset + mPaddingLeft + length / <span class="number">2</span>;
+            <span class="keyword">float</span> startY = getMatrixPoint()[<span class="number">1</span>] - <span class="number">15</span> + mPaddingTop;
+            canvas.drawText(data.getFormattedValue(), startX, startY, mValuePaint);
+        }
+    }
+</code></pre>
+<p>主要是计算出每条柱子顶部的坐标，然后在柱子顶部上一点的地方drawText，<br>同样有mapPoints()然后过滤掉超出图表视图边缘的文本<br>至于isNeedToDrawDataValues()，主要是判断当前的空间够不够位置显示值，因为数据太密集的时候，值根本不够空间显示。  </p>
+<h3 id="2-1、交互事件接收"><a href="#2-1、交互事件接收" class="headerlink" title="2.1、交互事件接收"></a>2.1、交互事件接收</h3><pre><code class="Java"><span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>{
+        <span class="keyword">switch</span> (event.getAction() &amp; MotionEvent.ACTION_MASK) {
+            <span class="keyword">case</span> MotionEvent.ACTION_DOWN:
+                <span class="keyword">if</span> (event.getPointerCount() &lt; <span class="number">2</span>) {
+                    startDragMode(event);
+                }
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> MotionEvent.ACTION_POINTER_DOWN:
+                <span class="keyword">if</span> (event.getPointerCount() &gt;= <span class="number">2</span>) {
+                    startZoomMode(event);
+                }
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> MotionEvent.ACTION_POINTER_UP:
+                <span class="keyword">if</span> (mMode == MODE.ZOOM_MODE) {
+                    endZoomMode();
+                }
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> MotionEvent.ACTION_MOVE:
+                <span class="keyword">if</span> (event.getPointerCount() &gt;= <span class="number">2</span>) {
+                    <span class="keyword">if</span> (mMode == MODE.ZOOM_MODE) {
+                        performZoom(event);
+                    }
+                } <span class="keyword">else</span> {
+                    <span class="keyword">if</span> (mMode == MODE.DRAG_MODE) {
+                        performDrag(event);
+                    }
+                }
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> MotionEvent.ACTION_UP:
+                <span class="keyword">if</span> (event.getPointerCount() &lt; <span class="number">2</span>) {
+                    <span class="keyword">if</span> (mMode == MODE.DRAG_MODE) {
+                        endDragMode(event);
+                    }
+                }
+                <span class="keyword">if</span> (mIsJustClick) {
+                    performClick(event);
+                }
+                mIsJustClick = <span class="keyword">true</span>;
+                <span class="keyword">break</span>;
+        }
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+</code></pre>
+<p>本文上面已说明了translate、scale的操作如何叠加在图表视图View级别的全局matrix中。<br>translate主要是startDragMode() -&gt; performDrag() -&gt; endDragMode()<br>scale主要是startZoomMode() -&gt; performZoom() -&gt; endZoom()<br>这里比较要注意的是MotionEvent.ACTION_MASK，此处主要用于多点触控处理。<br>api设计的初衷应该是为了简化调用方的处理复杂度，使用了MotionEvent.ACTION_MASK之后，<br>就要多两个case, MotionEvent.ACTION_POINTER_DOWN，MotionEvent.ACTION_POINTER_UP。<br>好了，到此为止，已经画完一个完整的BarChartView了，其他图表也差不多，只是外表差太多的图表，可能drawData使用的api不太一样。我这里大概列一下。  </p>
+<hr>
+<p>在CandleStickChartView中，蜡烛与柱状体差不多，差别在与柱状体从顶部画到x轴上，而蜡烛图的rectangle的y1与y2均需要处理一下。  </p>
+<hr>
+<p>在LineChatView中，需要使用的api是Canvas.drawLines(float[] pts, int offset, int count, Paint paint)，其中，pts是所有点的数组，但这个数组需要注意的地方是，比如目前需要有<br>A(ax, ay)、B(bx，by)、C(cx，cy)、D(dx，dy)四个点，并且从A到D将四个点连起来，这个pts的数组内容为<br>[ax, ay, ax, ay, bx, by, bx, by, cx, cy, cx, cy, dx,dy]；  </p>
+<hr>
+<p>然后画扇形图或饼状图，需要使用到android.graphics.Path这个类，然后使用方式如下：<br>比如扇形的三个点A(ax, ay)、B(bx，by)、C(cx，cy),<br>A是扇形圆形，B、C是弧上的两点，<br>则需要path.moveto(ax, ay)，然后path.lineto(bx, by)最后arcto(cx, cy)，再path.lineto(ax, ay)，形成一个闭环，最后调用一下path.close()，然后就可以调用canvas.drawPath(path, paint)去画出来了。  </p>
+<hr>
+<p>StackedBarChartView是x轴上同一个刻度上有多条柱状体堆叠上去，其实都是每一条柱状体的y1与y2控制好，就直接画出来了。  </p>
+<hr>
+<p>所有都一样，单纯实现不难，难的是对外API的设计与封装，MPAndroidChart的作者真的封装得好好，如有兴趣，看完本文后应该可以直接去看PhilJay的源码了。<br>本项目的实现效果，见下图：<br>StackedBarChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/StackedBarChart.png" alt="StackedBarChart"><br>PieChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/PieChart.png" alt="PieChart"><br>MultipleBarChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/MultipleBarChart.png" alt="MultipleBarChart"><br>LineChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/LineChart2.png" alt="LineChart"><br>HorizontalBarChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/HorizontalBarChart.png" alt="HorizontalBarChart"><br>HalfPieChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/HalfPieChart.png" alt="HalfPieChart"><br>DualLineChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/DualLineChart.png" alt="DualLineChart"><br>ComparisonBarChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/ComparisonBarChart.png" alt="ComparisonBarChart"><br>CandleStickChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/CandleStickChart.png" alt="CandleStickChart"><br>BubbleChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/BubbleChart.png" alt="BubbleChart"><br>BarChart<br><img src="http://orqt8ndmu.bkt.clouddn.com/BarChart.png" alt="BarCHart">  </p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/06/18/Apk文件相关/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/home.jpeg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="http://orqt8ndmu.bkt.clouddn.com/avatar2.jpeg" alt="Kelton Chan's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        channagihong@outlook.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Android-notes/">Android notes<span class="sidebar_archives-count">6</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="Tags">
+                
+                    <i class="material-icons sidebar-material-icons">loyalty</i>
+                
+                Tags
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">6</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Kelton Chan
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
